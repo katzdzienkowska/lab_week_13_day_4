@@ -2,11 +2,9 @@ package Enums;
 
 public enum Armour {
 
-    JACKET(100),
-    TROUSERS(60),
-    BOOTS(50),
-    GLOVES(30),
-    HELMET(70);
+    BRONZE(50),
+    SILVER(100),
+    GOLD(150);
 
     private final int defenceValue;
 
