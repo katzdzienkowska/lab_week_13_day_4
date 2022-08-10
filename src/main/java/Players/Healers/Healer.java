@@ -24,4 +24,8 @@ public class Healer extends Player implements IHeal {
     public int heal() {
         return this.healingTool.getHealingValue();
     }
+
+    public void healPlayer(Player player) {
+        player.setHealth(player.getHealth() + heal());
+    }
 }

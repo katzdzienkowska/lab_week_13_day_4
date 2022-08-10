@@ -1,6 +1,9 @@
+import Enums.Armour;
 import Enums.MythicalCreature;
 import Enums.Spell;
+import Enums.Weapon;
 import Players.SpellCasters.Druid;
+import Players.WeaponMasters.Knight;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,6 +12,7 @@ import static org.junit.Assert.assertEquals;
 public class DruidTest {
 
     Druid druid;
+    Knight knight;
 
     @Before
     public void before() {
@@ -45,6 +49,13 @@ public class DruidTest {
     public void canChangeMythicalCreature() {
         druid.setMythicalCreature(MythicalCreature.OGRE);
         assertEquals(MythicalCreature.OGRE, druid.getMythicalCreature());
+    }
+
+    @Test
+    public void canDuel() {
+        knight = new Knight("Oskar", 300, Weapon.SWORD, Armour.SILVER);
+        druid.duel(knight);
+        assertEquals(640, druid.getHealth());
     }
 
 }

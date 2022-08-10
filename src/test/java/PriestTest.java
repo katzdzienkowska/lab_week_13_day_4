@@ -1,7 +1,7 @@
-import Enums.HealingTool;
-import Enums.MythicalCreature;
-import Enums.Spell;
+import Enums.*;
 import Players.Healers.Priest;
+import Players.Player;
+import Players.WeaponMasters.Knight;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -10,6 +10,7 @@ import static org.junit.Assert.assertEquals;
 public class PriestTest {
 
     Priest priest;
+    Player player;
 
     @Before
     public void before() {
@@ -37,4 +38,10 @@ public class PriestTest {
         assertEquals(HealingTool.HERB, priest.getHealingTool());
     }
 
+    @Test
+    public void canHealPlayer() {
+        player = new Knight("Oskar", 300, Weapon.SWORD, Armour.SILVER);
+        priest.healPlayer(player);
+        assertEquals(400, player.getHealth());
+    }
 }

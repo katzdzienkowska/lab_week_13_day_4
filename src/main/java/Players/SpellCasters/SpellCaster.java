@@ -34,10 +34,20 @@ public class SpellCaster extends Player implements IAttack, IDefend {
     }
 
     public int attack() {
-        return this.spell.getDamageValue();
+
+        return this.spell.getDamageValue() + defend();
     }
 
     public int defend() {
         return this.mythicalCreature.getProtectionValue();
+    }
+
+    public void duel(IAttack opponent) {
+        int player1 = attack();
+        int player2 = opponent.attack();
+        if (player1 <= player2) {
+            int health = getHealth() - (player1 - player2);
+            setHealth(health);
+        }
     }
 }

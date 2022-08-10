@@ -21,4 +21,5 @@ public abstract class Player {
     public void setHealth(int health) {
         this.health = health;
     }
+
 }
