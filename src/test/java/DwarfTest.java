@@ -1,5 +1,8 @@
 import Enums.Armour;
+import Enums.MythicalCreature;
+import Enums.Spell;
 import Enums.Weapon;
+import Players.SpellCasters.Wizard;
 import Players.WeaponMasters.Dwarf;
 import Players.WeaponMasters.Knight;
 import org.junit.Before;
@@ -10,6 +13,7 @@ import static org.junit.Assert.assertEquals;
 public class DwarfTest {
 
     Dwarf dwarf;
+    Wizard wizard;
 
     @Before
     public void before() {
@@ -46,6 +50,13 @@ public class DwarfTest {
     public void canChangeArmour() {
         dwarf.setArmour(Armour.GOLD);
         assertEquals(Armour.GOLD, dwarf.getArmour());
+    }
+
+    @Test
+    public void canDuel() {
+        wizard = new Wizard("Hurin", 500, Spell.LIGHTNING_STRIKE, MythicalCreature.OGRE);
+        dwarf.duel(wizard);
+        assertEquals(250, dwarf.getHealth());
     }
 
 }
